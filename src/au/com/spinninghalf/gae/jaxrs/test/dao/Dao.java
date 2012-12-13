@@ -19,11 +19,11 @@ public enum Dao {
 		return gigs;
 	}
 	
-	public void addGig(String userId, String date, String gig, String description,
+	public void addGig(String userId, String date, String venue, String show, String description,
 			String tixUrl, String  price) {
 		synchronized (this) {
 			EntityManager em = EMFService.get().createEntityManager();
-			Gig newGig = new Gig(userId, date, gig, description, tixUrl, price);
+			Gig newGig = new Gig(userId, date, venue, show, description, tixUrl, price);
 			em.persist(newGig);
 			em.close();
 		}

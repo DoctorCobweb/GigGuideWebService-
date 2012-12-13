@@ -50,8 +50,9 @@ You have a total number of <%= gigs.size() %>  gigs.
 <form name="displayGig" method="post" action="rest/done">
 	<table>
 	  <tr>
-	      <th>Date </th>
-	      <th>Gig </th>
+	      <th>Date</th>
+	      <th>Gig</th>
+	      <th>Venue </th>
 	      <th>Description</th>
 	      <th>Tix URL</th>
 	      <th>Price</th>
@@ -65,6 +66,9 @@ You have a total number of <%= gigs.size() %>  gigs.
 		</td>
 		<td>
 			<%=gig.getShow()%>
+		</td>
+		<td>
+			<%=gig.getVenue()%>
 		</td>
 		<td>
 			<%=gig.getDescription()%>
@@ -105,8 +109,12 @@ You have a total number of <%= gigs.size() %>  gigs.
       <td><input type="text" name="date" id="date" size="65"/></td>
     </tr>
     <tr>
-      <td><label for="show">Headline</label></td>
+      <td><label for="show">Gig: Headline Act</label></td>
       <td><input type="text" name="show" id="show" size="65"/></td>
+    </tr>
+    <tr>
+      <td><label for="venue">Venue</label></td>
+      <td><input type="text" name="venue" id="venue" size="65"/></td>
     </tr>
     <tr>
       <td valign="description"><label for="description">Description</label></td>

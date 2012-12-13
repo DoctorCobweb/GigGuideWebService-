@@ -34,6 +34,7 @@ public class ServletCreateGig {
 	public void newGig(
 			@FormParam("date") String _date,
 			@FormParam("show") String _show,
+			@FormParam("venue") String _venue,
 			@FormParam("description") String _description,
 			@FormParam("tixUrl") String _tixUrl,
 			@FormParam("price") String _price,
@@ -49,11 +50,12 @@ public class ServletCreateGig {
 		}
 		String date = checkNull(_date);
 		String show = checkNull(_show);
+		String venue = checkNull(_venue);
 		String description = checkNull(_description);
 		String tixUrl = checkNull(_tixUrl);
 		String price = checkNull(_price);
 		
-		Dao.INSTANCE.addGig(user.getUserId(), date, show, description, tixUrl, price);
+		Dao.INSTANCE.addGig(user.getUserId(), date, venue, show, description, tixUrl, price);
 		
 		resp.sendRedirect("/gigApplication.jsp");
 	}
@@ -65,5 +67,6 @@ public class ServletCreateGig {
 		return s;
 	}
 }
+
 
 

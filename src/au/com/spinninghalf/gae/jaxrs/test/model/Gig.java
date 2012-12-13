@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement
-@XmlType(propOrder = {"id", "author", "show", "date", "description", "tixUrl", "price"})
+@XmlType(propOrder = {"id", "author", "show", "date", "venue", "description", "tixUrl", "price"})
 @Entity
 public class Gig {
 	
@@ -19,18 +19,19 @@ public class Gig {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
 	private String author;
-	
-	private String date;
 	private String show;
+	private String date;
+	private String venue;
 	private String description;
 	private String tixUrl;
 	private String price;
 	//boolean finished;
 	
-	public Gig(String author, String date, String show, String description,
+	public Gig(String author, String date, String venue, String show, String description,
 			String tixUrl, String price) {
 		this.author = author;
 		this.date = date;
+		this.venue = venue;
 		this.show = show;
 		this.description = description;
 		this.tixUrl = tixUrl;
@@ -62,6 +63,15 @@ public class Gig {
 	}
 	
 	@XmlElement
+	public String getVenue() {
+		return venue;
+	}
+	
+	public void setVenue(String venue) {
+		this.venue = venue;
+	}
+	
+	@XmlElement
 	public String getShow() {
 		return show;
 	}
@@ -69,6 +79,7 @@ public class Gig {
 	public void setShow(String show) {
 		this.show = show;
 	}
+	
 	
 	@XmlElement
 	public String getDescription() {
